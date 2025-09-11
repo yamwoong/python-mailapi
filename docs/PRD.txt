@@ -1,0 +1,118 @@
+📑 Product Requirement Document (PRD)
+1. Project Overview
+
+An AI-powered email summarization system that automatically processes incoming Gmail messages, summarizes them using Python-based NLP models, and displays the results on a TypeScript + Node.js + Express + MongoDB web application.
+The web app will use decorator-based routing (@Controller, @Get, @Post) and dependency injection (TypeDI) to follow a clean, maintainable architecture.
+
+2. Goals & Objectives
+
+📬 Automated Gmail Parsing: Connect to Gmail API, fetch new emails in real-time.
+
+🤖 AI Summarization: Summarize email content in English (and optionally Korean) using Python NLP (e.g., Hugging Face Transformers).
+
+🌐 Web Dashboard: Provide a user-friendly interface to view summarized emails.
+
+🛠 Scalable Backend: Build using Express + TypeScript with TypeDI for DI and decorators for routing.
+
+✅ Reliability: Ensure correctness with unit and integration tests.
+
+3. Key Features
+3.1 Backend (Node.js + Express + MongoDB)
+
+Authentication (Google OAuth2 for Gmail access, user login for dashboard)
+
+Email API: Fetch summarized emails from MongoDB
+
+CRUD Support: Manage summaries (view, delete, re-summarize)
+
+Architecture:
+
+Controller → Service → Repository → Mapper
+
+Decorators (@Controller, @Get, @Post)
+
+Dependency Injection with TypeDI
+
+3.2 AI Service (Python + FastAPI)
+
+Summarization Pipeline:
+
+Summarize email text in English
+
+Optionally translate summary into Korean
+
+Language Detection: Auto-detect input language
+
+Database Integration: Save summarized results to MongoDB
+
+3.3 Web Frontend (React + TypeScript)
+
+Dashboard: List summarized emails
+
+Detail View: Show full email and summary side by side
+
+Search & Filter: Find summaries by sender/subject/date
+
+Responsive UI: Simple, clean layout for desktop and mobile
+
+4. Tech Stack
+
+Backend: TypeScript, Node.js (Express 5), MongoDB (Mongoose), TypeDI, routing-controllers
+
+AI Service: Python, FastAPI, Hugging Face Transformers, Google Cloud Translate
+
+Frontend: React + TypeScript, Tailwind CSS
+
+Testing: Jest (unit + integration), Supertest (API tests), Pytest (Python service)
+
+Infra: Docker Compose (Node + Python + MongoDB), GitHub Actions CI/CD
+
+5. Testing Strategy
+
+Unit Tests:
+
+Backend: DTO validation, services, repositories
+
+Python: Summarizer logic, translation fallback
+
+Integration Tests:
+
+End-to-end API calls (email fetch → summarize → DB store → web display)
+
+Mock Gmail API + Mock Summarizer
+
+CI/CD:
+
+Run test suites on every PR
+
+Linting & Prettier enforced via Husky + lint-staged
+
+6. Success Metrics
+
+⏱ Performance: Summarization under 3 seconds per email
+
+📊 Accuracy: Summaries capture at least 80% of key information
+
+💻 Reliability: >90% test coverage for critical modules
+
+👨‍💻 Maintainability: Modular structure with DI and decorators
+
+7. Out of Scope
+
+Rich email formatting (images, attachments parsing)
+
+Multi-user role management (admin dashboards)
+
+Mobile app (only web interface for now)
+
+8. Timeline (MVP Plan)
+
+Week 1-2: Gmail API integration + Python summarizer service
+
+Week 3-4: Backend architecture (Controller → Service → Repository) with DI
+
+Week 5: Frontend dashboard implementation
+
+Week 6: Unit & integration tests + CI/CD setup
+
+Week 7: Docker Compose + deployment (AWS EC2)

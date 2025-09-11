@@ -1,0 +1,31 @@
+# -------------------------------
+# Core dependencies
+# -------------------------------
+
+fastapi
+# Web framework for building APIs quickly with automatic OpenAPI generation
+
+uvicorn[standard]
+# ASGI server to run FastAPI applications in production or dev environments
+
+pydantic
+# Data validation and settings management using Python type hints
+
+pydantic-settings
+# Recommended for managing configuration via environment variables (replaces pydantic.BaseSettings in v2)
+
+# -------------------------------
+# Development & Testing tools
+# -------------------------------
+
+pytest
+# Popular testing framework for unit and integration tests
+
+httpx
+# Async HTTP client used for testing FastAPI endpoints with realistic requests
+
+black
+# Opinionated code formatter to keep Python code consistent
+
+ruff
+# Extremely fast linter & formatter with built-in rules for Python best practices
